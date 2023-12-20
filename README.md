@@ -3,7 +3,7 @@
 <br>
 
 ### Core Features
-+ Manual Authentication, which is register, login & logout..
++ Manual Authentication which is register, login & logout..
 + CRUD
 + Authorization
 + Mailing
