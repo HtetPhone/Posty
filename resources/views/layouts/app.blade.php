@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Posty</title>
-    @vite(['resources/css/app.scss', 'resources/js/app.js'])
+    @vite(['resources/css/app.scss', 'resources/js/app.js', 'resources/css/_custom.scss'])
 </head>
 
 <body>
@@ -20,6 +20,7 @@
             <div class="hidden lg:flex space-x-4 ms-8">
                 @auth
                 <a href="{{route('dashboard')}}" class="text-white nav-link">Dashboard</a>
+                <a href="{{route('profile.user', auth()->user())}}" class="text-white nav-link">Profile</a>
                 @endauth
                 <a href="{{route('posts.index')}}" class="text-white nav-link">Posts</a>
             </div>
@@ -59,6 +60,7 @@
         <div class="container mx-auto py-4 px-10 space-y-2">
             @auth
             <a href="{{route('dashboard')}}" class="text-white block nav-link">Dashboard</a>
+            <a href="{{route('profile.user', auth()->user())}}" class="text-white block nav-link">Profile</a>
             @endauth
             <a href="{{route('posts.index')}}" class="text-white block nav-link">Posts</a>
             <div class="flex space-x-2 ms-auto">

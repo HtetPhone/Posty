@@ -6,6 +6,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\PostUserController;
+use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -49,3 +50,10 @@ Route::controller(LikeController::class)->group(function() {
 
 //users posts
 Route::get('/users/{user:name}/posts', [PostUserController::class, 'show'])->name('users.posts');
+
+//profile
+Route::controller(ProfileController::class)->middleware('auth')->group(function() {
+    Route::get('/profile/{user:name}/user', 'show')->name('profile.user');
+    Route::get('/passwrod/{user:name}/reset', 'reset')->name('password.reset');
+    Route::patch('/passwrod/{user:name}/reset', 'update');
+});
